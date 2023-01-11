@@ -195,11 +195,10 @@ rule sort_and_fix_tags:
     input:
         dedup_bam = "{bucket}/wgs/{breed}/{sample_name}/{ref}/bam/{sample_name}.{ref}.aligned.unsorted.duplicates_marked.bam",
     output:
-        sorted_bam = temp("{bucket}/wgs/{breed}/{sample_name}/{ref}/bam/{sample_name}.{ref}.aligned.duplicate_marked.sorted.bam"),
-        sorted_bai = temp("{bucket}/wgs/{breed}/{sample_name}/{ref}/bam/{sample_name}.{ref}.aligned.duplicate_marked.sorted.bai")
+        sorted_bam = "{bucket}/wgs/{breed}/{sample_name}/{ref}/bam/{sample_name}.{ref}.aligned.duplicate_marked.sorted.bam",
+        sorted_bai = "{bucket}/wgs/{breed}/{sample_name}/{ref}/bam/{sample_name}.{ref}.aligned.duplicate_marked.sorted.bai"
     params:
         java_opt  = "-Xms4000m",
-        tmp_dir   = config['sort_tmp'],
         ref_fasta = config['ref_fasta']
     benchmark:
         "{bucket}/wgs/{breed}/{sample_name}/{ref}/bam/{sample_name}.merge_bams.benchmark.txt"
@@ -213,7 +212,6 @@ rule sort_and_fix_tags:
 
             gatk --java-options "-Dsamjdk.compression_level=5 {params.java_opt}" \
                 SortSam \
-                --TMP_DIR {params.tmp_dir} \
                 --INPUT {input.dedup_bam} \
                 --OUTPUT /dev/stdout \
                 --SORT_ORDER "coordinate" \

@@ -1,0 +1,2 @@
+breed	sample_name	readgroup_name	fastq_1	fastq_2	library_name	platform_unit	flowcell	run_date	platform_name	sequencing_center
+tb	AH4	AH4_A	../AH4/WGS/AH4.CXCL16_R1.fq.gz	../AH4/WGS/AH4.CXCL16_R2.fq.gz	illumina-AH4	H7VLNDSXY.3.16705/2	H7VLNDSXY	2023-01-11T09:41:36	illumina	unknown
