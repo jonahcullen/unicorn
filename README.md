@@ -69,7 +69,7 @@ tar -xzvf samples.tar.gz
 git clone https://github.com/jonahcullen/unicorn.git && cd unicorn
 ```
 
-**2. Download the container**
+**4. Download the container**
 
 Due to the size of the Equine genome and associated indices included in the container (and depending on your internet speed) this should take ~2 minutes.
 
