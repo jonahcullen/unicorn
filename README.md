@@ -8,9 +8,7 @@ This repo contains the steps required to setup a snakemake environment in order 
 - [Python](https://www.python.org/)
 - [Mamba](https://github.com/mamba-org/mamba) or [Conda](https://conda.io/)
 - [Snakemake](https://snakemake.readthedocs.io/)
-- Miscellaneous python modules [pyaml](https://pyyaml.org/), [wget](https://bitbucket.org/techtonik/python-wget/), and [xlsxwriter](https://xlsxwriter.readthedocs.io/)
 - [Apptainer/Singularity](https://apptainer.org/)
-- [MinIO Client](https://min.io/docs/minio/linux/reference/minio-mc.html)
 
 The `unicorn` Singularity container includes the following tools:
 - [Placeholder]
@@ -26,19 +24,18 @@ Setup will be dependent on whether you will be using resources provided by your 
 If you do not have `conda` already installed, the Snakemake developers **recommend** to install via [Mambaforge](https://github.com/conda-forge/miniforge#mambaforge).
 
 ```
-# download Mambaforge installer (assuming Unix-like platform)
+# download Mambaforge installer (assuming Unix-like platform) (~5 minutes)
 wget "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
 bash Mambaforge-$(uname)-$(uname -m).sh
+
+# to use `mamba` either log out and log back in or source your configuration file as
+source ~/.bashrc
 
 # updata Mamba
 mamba update mamba -c conda-forge
 
-# create a Snakemake environment which includes all Snakemake dependencies in
-# addition to the miscellaneous modules above
-mamba create \
-    -c conda-forge -c bioconda \
-    -n snakemake \ # name of the environment
-    snakemake pyaml wget xlsxwriter
+# create a Snakemake environment, here named snakemake (`-n snakemake`) which includes all Snakemake dependencies (~5 minutes)
+mamba create -c conda-forge -c bioconda -n snakemake snakemake
 ```
 
 Alternatively, if you are already familiar with `conda` and creating environments, it is suggested to install `mamba` in your base environment and use that to build your environment.
@@ -48,10 +45,7 @@ Alternatively, if you are already familiar with `conda` and creating environment
 conda install -n base -c conda-forge mamba
 
 # create a Snakemake environment
-mamba create \
-    -c conda-forge -c bioconda \
-    -n snakemake \ # name of the environment
-    snakemake pyaml wget xlsxwriter
+mamba create -c conda-forge -c bioconda -n snakemake snakemake 
 ```
 
 **2. Download processed samples**
@@ -66,7 +60,7 @@ tar -xzvf samples.tar.gz
 **3. Clone this repo**
 
 ```
-git clone https://github.com/jonahcullen/unicorn.git && cd unicorn
+git clone https://github.com/jonahcullen/unicorn.git
 ```
 
 **4. Download the container**
@@ -85,13 +79,13 @@ link to Jillians excellent instructions for PCs
 
 ## Processing FASTQs to GVCFs for AH4
 
-Once the initial setup has been completed, we are ready to process the FASTQs for AH4! First activate your snakemake environment with either `source activate snakemake` or `conda activate snakemake` (JILLIAN can you let me know which one works on MSI vs Amazon? It will depend and I cannot remember which is which between the two). In order to start pipeline, execute the following
+Once the initial setup has been completed, we are ready to process the FASTQs for AH4! First activate your snakemake environment with `mamba activate snakemake` or `conda activate snakemake` (JILLIAN can you let me know which one works on MSI vs Amazon? It will depend and I cannot remember which is which between the two). In order to start the pipeline, execute the following
 
 ```
-snakemake -s unicorn.smk \
+snakemake -s ./unicorn/unicorn.smk \
     --use-singularity \
     --singularity-args "-B $PWD" \
-    --configfile AH4_goldenPath_config.yaml \
+    --configfile ./unicorn/AH4_goldenPath_config.yaml \
     --cores 8
 ```
 
