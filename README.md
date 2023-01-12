@@ -73,13 +73,22 @@ wget https://s3.msi.umn.edu/wags/unicorn.sif
 
 ### (B) Amazon instance
 
-- from where will they get the .pem?
-link to Jillians excellent instructions for PCs
+(Location of .pem file)
+The .pem file will be downloaded as a text file. In order to use it, you will first have to save a new version of the file without a .txt file extension. 
+
+**PC Users**
+
+PC users will need to use PuTTY and the associated PuTTYgen to start the instance. After PuTTY is downloaded follow the instructions linked below to start the instance and finish set up.
+
+[PC Instance Instructions](https://docs.google.com/document/d/e/2PACX-1vSxbIYY_2nD8KocEyIcnIzIIiYJBD6Ztj4TLod2Pytqm1Y-Qxgh6vw3bK0KNzbxbQ/pub)
+
+**MAC Users**
+
 @Ted can you put instructions here for Mac?
 
 ## Processing FASTQs to GVCFs for AH4
 
-Once the initial setup has been completed, we are ready to process the FASTQs for AH4! First activate your snakemake environment with `mamba activate snakemake` or `conda activate snakemake` (JILLIAN can you let me know which one works on MSI vs Amazon? It will depend and I cannot remember which is which between the two). In order to start the pipeline, execute the following
+Once the initial setup has been completed, we are ready to process the FASTQs for AH4! First activate your snakemake environment with `source activate snakemake` (Check on Amazon Instance). In order to start the pipeline, execute the following
 
 ```
 snakemake -s ./unicorn/unicorn.smk \
