@@ -73,12 +73,21 @@ wget https://s3.msi.umn.edu/wags/unicorn.sif
 
 ### (B) Amazon instance
 
-(Location of .pem file)
-The .pem file will be downloaded as a text file. In order to use it, you will first have to save a new version of the file without a .txt file extension. 
+Using the instance requires a key. Downloading the key can be done with:
+
+```
+wget https://s3.msi.umn.edu/wags/EquineGenetics.pem
+```
+
+Opening the instance will be different for PC user and Mac users
 
 **PC Users**
 
-PC users will need to use PuTTY and the associated PuTTYgen to start the instance. After PuTTY is downloaded follow the instructions linked below to start the instance and finish set up.
+PC users will need to use PuTTY and the associated PuTTYgen to start the instance. PuTTY version 0.76.0 or higher is necessary. The link below can be used to download the most recent version of the 64-bit x86 windows installer. 
+
+[Download PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
+
+After PuTTY is downloaded follow the instructions linked below to start the instance and finish set up.
 
 [PC Instance Instructions](https://docs.google.com/document/d/e/2PACX-1vSxbIYY_2nD8KocEyIcnIzIIiYJBD6Ztj4TLod2Pytqm1Y-Qxgh6vw3bK0KNzbxbQ/pub)
 
