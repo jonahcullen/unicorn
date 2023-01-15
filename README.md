@@ -28,7 +28,7 @@ If you do not have `conda` already installed, the Snakemake developers **recomme
 wget "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
 bash Mambaforge-$(uname)-$(uname -m).sh
 
-# to use `mamba` either log out and log back in or source your configuration file as
+# to use mamba either log out and log back in or source your configuration file as
 source ~/.bashrc
 
 # updata Mamba
