@@ -48,7 +48,7 @@ conda install -n base -c conda-forge mamba
 mamba create -c conda-forge -c bioconda -n snakemake snakemake 
 ```
 
-**2. Download processed samples**
+**2. Download sample data**
 
 As part of the workshop, we'll be processing only one sample (AH4) as the other three (AH1, AH2, and AH3) have already been completed. The archive below also contains the FASTQs for AH4.
 
