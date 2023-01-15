@@ -79,7 +79,7 @@ link to Jillians excellent instructions for PCs
 
 ## Processing FASTQs to GVCFs for AH4
 
-Once the initial setup has been completed, we are ready to process the FASTQs for AH4! First activate your snakemake environment with `mamba activate snakemake` or `conda activate snakemake` (JILLIAN can you let me know which one works on MSI vs Amazon? It will depend and I cannot remember which is which between the two). In order to start the pipeline, execute the following
+Once the initial setup has been completed, we are ready to process the FASTQs for AH4! First activate your snakemake environment with `source activate snakemake` or `conda activate snakemake` (JILLIAN can you let me know which one works on MSI vs Amazon? It will depend and I cannot remember which is which between the two). In order to start the pipeline, execute the following
 
 ```
 snakemake -s ./unicorn/unicorn.smk \
