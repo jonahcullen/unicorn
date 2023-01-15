@@ -73,13 +73,67 @@ wget https://s3.msi.umn.edu/wags/unicorn.sif
 
 ### (B) Amazon instance
 
-- from where will they get the .pem?
-link to Jillians excellent instructions for PCs
-@Ted can you put instructions here for Mac?
+**1. Download Instance Key**
+
+Downloading the key can be done by copying the command below into a browser's address bar.
+
+```
+wget https://s3.msi.umn.edu/wags/EquineGenetics.pem
+```
+
+**2. Open the Instance**
+
+Opening the instance will be different for PC users and Mac users
+
+**PC Users**
+
+PC users will need to use PuTTY and the associated PuTTYgen to start the instance. PuTTY version 0.76.0 or higher is necessary. The link below can be used to download the most recent version of the 64-bit x86 Windows installer. 
+
+[Download PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
+
+After PuTTY is downloaded follow the instructions linked below to start the instance and finish set up.
+
+[PC Instance Instructions](https://docs.google.com/document/d/e/2PACX-1vSxbIYY_2nD8KocEyIcnIzIIiYJBD6Ztj4TLod2Pytqm1Y-Qxgh6vw3bK0KNzbxbQ/pub)
+
+**MAC Users**
+
+@Jonah or Ted: Please check my instructions :)
+
+In a terminal window, navigate to the directory containing the EquineGenetics.pem file. 
+
+```
+chmod 600 EquineGenetics.pem
+ssh -i "EquineGenetics.pem" root@{selectedInstanceIP}
+```
+The selected IP address should be from the list of available instances. 
+
+**3. Download processed samples**
+
+As part of the workshop, we'll be processing only one sample (AH4) as the other three (AH1, AH2, and AH3) have already been completed. The archive below also contains the FASTQs for AH4.
+
+```
+wget https://s3.msi.umn.edu/wags/samples.tar.gz
+tar -xzvf samples.tar.gz
+```
+
+**4. Clone this repo**
+
+```
+git clone https://github.com/jonahcullen/unicorn.git
+```
+
+**5. Download the container**
+
+Due to the size of the Equine genome and associated indices included in the container (and depending on your internet speed) this should take ~2 minutes.
+
+```
+wget https://s3.msi.umn.edu/wags/unicorn.sif
+```
 
 ## Processing FASTQs to GVCFs for AH4
 
-Once the initial setup has been completed, we are ready to process the FASTQs for AH4! First activate your snakemake environment with `source activate snakemake` or `conda activate snakemake` (JILLIAN can you let me know which one works on MSI vs Amazon? It will depend and I cannot remember which is which between the two). In order to start the pipeline, execute the following
+
+Once the initial setup has been completed, we are ready to process the FASTQs for AH4! First activate your snakemake environment with `source activate snakemake`. In order to start the pipeline, execute the following
 
 ```
 snakemake -s ./unicorn/unicorn.smk \
