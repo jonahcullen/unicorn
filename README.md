@@ -73,19 +73,19 @@ wget https://s3.msi.umn.edu/wags/unicorn.sif
 
 ### (B) Amazon instance
 
-**1. Download Instance Key**
+**1. Download instance key**
 
-Downloading the key can be done by copying the command below into a browser's address bar.
+Downloading the key can be done by copying the command below into your terminal prompt OR putingg the web address directly into your browser's address bar.
 
 ```
 wget https://s3.msi.umn.edu/wags/EquineGenetics.pem
 ```
 
-**2. Open the Instance**
+**2. Open the instance**
 
 Opening the instance will be different for PC users and Mac users
 
-**PC Users**
+**PC users**
 
 PC users will need to use PuTTY and the associated PuTTYgen to start the instance. PuTTY version 0.76.0 or higher is necessary. The link below can be used to download the most recent version of the 64-bit x86 Windows installer. 
 
@@ -95,15 +95,12 @@ After PuTTY is downloaded follow the instructions linked below to start the inst
 
 [PC Instance Instructions](https://docs.google.com/document/d/e/2PACX-1vSxbIYY_2nD8KocEyIcnIzIIiYJBD6Ztj4TLod2Pytqm1Y-Qxgh6vw3bK0KNzbxbQ/pub)
 
-**MAC Users**
-
-@Jonah or Ted: Please check my instructions :)
+**MAC users**
 
 In a terminal window, navigate to the directory containing the EquineGenetics.pem file. 
 
 ```
-chmod 600 EquineGenetics.pem
-ssh -i "EquineGenetics.pem" root@{selectedInstanceIP}
+ssh -i EquineGenetics.pm ubuntu@{selectedInstanceIP}
 ```
 The selected IP address should be from the list of available instances. 
 
