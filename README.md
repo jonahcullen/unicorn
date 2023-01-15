@@ -28,7 +28,7 @@ If you do not have `conda` already installed, the Snakemake developers **recomme
 wget "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
 bash Mambaforge-$(uname)-$(uname -m).sh
 
-# to use `mamba` either log out and log back in or source your configuration file as
+# to use mamba either log out and log back in or source your configuration file as
 source ~/.bashrc
 
 # updata Mamba
@@ -48,7 +48,7 @@ conda install -n base -c conda-forge mamba
 mamba create -c conda-forge -c bioconda -n snakemake snakemake 
 ```
 
-**2. Download processed samples**
+**2. Download sample data**
 
 As part of the workshop, we'll be processing only one sample (AH4) as the other three (AH1, AH2, and AH3) have already been completed. The archive below also contains the FASTQs for AH4.
 
@@ -131,6 +131,7 @@ wget https://s3.msi.umn.edu/wags/unicorn.sif
 ```
 
 ## Processing FASTQs to GVCFs for AH4
+
 
 Once the initial setup has been completed, we are ready to process the FASTQs for AH4! First activate your snakemake environment with `source activate snakemake`. In order to start the pipeline, execute the following
 
