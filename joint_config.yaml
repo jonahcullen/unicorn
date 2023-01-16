@@ -3,7 +3,7 @@ ref: goldenPath
 bucket: results
 sif: unicorn.sif
 ref_fasta: /home/refgen/horse/goldenPath/goldenPath.Ec_build-3.0_wMSY.fa
-ref_gtf: /home/refgen/horse/goldenPath/
+ref_gtf: /home/refgen/horse/goldenPath/Equus_caballus.EquCab3.0.108.sorted.gtf.gz
 
 # conda envs can exist within containers
 conda_envs :

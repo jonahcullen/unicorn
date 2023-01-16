@@ -3,9 +3,9 @@ rule vep_by_interval:
     input:
         vcf = "{bucket}/wgs/pipeline/{ref}/{date}/genotype_gvcfs/unicorn_chr11_49584056-50592157/output.vcf.gz",
     output:
-        recal_vep      = "{bucket}/wgs/pipeline/{ref}/{date}/final_gather/vep/unicorn_chr11_49584056-50592157/joint_call.vep.vcf.gz", 
-        recal_vep_tbi  = "{bucket}/wgs/pipeline/{ref}/{date}/final_gather/vep/unicorn_chr11_49584056-50592157/joint_call.vep.vcf.gz.tbi", 
-        recal_vep_html = "{bucket}/wgs/pipeline/{ref}/{date}/final_gather/vep/unicorn_chr11_49584056-50592157/joint_call.vep.vcf_summary.html", 
+        recal_vep      = "{bucket}/wgs/pipeline/{ref}/{date}/annotate/vep/unicorn_chr11_49584056-50592157/joint_call.vep.vcf.gz", 
+        recal_vep_tbi  = "{bucket}/wgs/pipeline/{ref}/{date}/annotate/vep/unicorn_chr11_49584056-50592157/joint_call.vep.vcf.gz.tbi", 
+        recal_vep_html = "{bucket}/wgs/pipeline/{ref}/{date}/annotate/vep/unicorn_chr11_49584056-50592157/joint_call.vep.vcf_summary.html", 
     params:
         out_name = lambda wildcards, output: os.path.splitext(output.recal_vep)[0],
         ref_fasta = config['ref_fasta'],
