@@ -147,7 +147,7 @@ This should take ~8 minutes.
 As input to the joint calling pipeline, we will first generate a list of GVCFs to be used as input. To generate the list, execute the following
 
 ```
-find . -name "*.g.vcf.gz" -exec realpath {} >> joint.list \;
+find -name '*.g.vcf.gz' -type f -printf '%f\t%p\n' |sed 's/\.goldenPath.g.vcf.gz//' >> joint.list
 ```
 
 You can inspect this list with `cat joint.list` to ensure there are only four lines. (If you run the above additional times, the file will be updated with four more lines. You can delete it and start over with `rm joint.list`.)
