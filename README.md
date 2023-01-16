@@ -130,7 +130,7 @@ wget https://s3.msi.umn.edu/wags/unicorn.sif
 ## Processing FASTQs to GVCFs for AH4
 
 
-Once the initial setup has been completed, we are ready to process the FASTQs for AH4! First activate your snakemake environment with `source activate snakemake`. In order to start the pipeline, execute the following
+Once the initial setup has been completed, we are ready to process the FASTQs for AH4! First activate your snakemake environment with either `source activate snakemake` or `conda activate snakemake`. In order to start the pipeline, execute the following
 
 ```
 snakemake -s ./unicorn/unicorn.smk \
@@ -141,3 +141,24 @@ snakemake -s ./unicorn/unicorn.smk \
 ```
 
 This should take ~8 minutes.
+
+## Joint genotyping GVCFs
+
+As input to the joint calling pipeline, we will first generate a list of GVCFs to be used as input. To generate the list, execute the following
+
+```
+find . -name "*.g.vcf.gz" -exec realpath {} >> joint.list \;
+```
+
+You can inspect this list with `cat joint.list` to ensure there are only four lines. (If you run the above additional times, the file will be updated with four more lines. You can delete it and start over with `rm joint.list`.)
+
+To begin the joint genotyping pipeline, execute the following
+
+```
+snakemake -s ./unicorn/many_unicorns.smk \
+    --use-singularity \
+    --singularity-args "-B $PWD" \
+    --configfile ./unicorn/joint_config.yaml \
+    --cores 8
+```
+

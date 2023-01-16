@@ -1,9 +1,7 @@
 import os
 import pandas as pd
 
-#######################################
-# local without BQSR ##################
-#######################################
+# pipeline to process FASTQs to GVCFs
 
 singularity: config['sif']
 include: "src/utils.py"

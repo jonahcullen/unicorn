@@ -1,0 +1,10 @@
+date: 20230115
+ref: goldenPath
+bucket: results
+sif: unicorn.sif
+ref_fasta: /home/refgen/horse/goldenPath/goldenPath.Ec_build-3.0_wMSY.fa
+ref_gtf: /home/refgen/horse/goldenPath/
+
+# conda envs can exist within containers
+conda_envs :
+  qc : bcftools
