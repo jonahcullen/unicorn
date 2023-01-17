@@ -79,6 +79,7 @@ Downloading the key can be done by copying the command below into your terminal 
 
 ```
 wget https://s3.msi.umn.edu/wags/EquineGenetics.pem
+chmod 600 EquineGenetics.pem
 ```
 
 **2. Open the instance**
@@ -100,7 +101,7 @@ After PuTTY is downloaded follow the instructions linked below to start the inst
 In a terminal window, navigate to the directory containing the EquineGenetics.pem file. 
 
 ```
-ssh -i EquineGenetics.pm ubuntu@{selectedInstanceIP}
+ssh -i EquineGenetics.pem ubuntu@{selectedInstanceIP}
 ```
 The selected IP address should be from the list of available instances. 
 
